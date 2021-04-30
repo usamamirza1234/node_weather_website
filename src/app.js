@@ -29,14 +29,14 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'USAMA',
+        title: 'My First Backend Site',
         name: "USAMA"
     })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: "About me",
+        title: "My First Backend Site",
         name: 'Usama'
     })
 })
@@ -108,5 +108,5 @@ app.get('*', (req, res) => {
 
 app.listen(port, () => {
 
-    console.log('Server is up on port 3000.')
+    console.log('Server is up on port ' + port)
 })
