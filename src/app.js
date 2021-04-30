@@ -14,6 +14,7 @@ const partials = path.join(__dirname, '../templetes/partials')
 
 
 const app = express()
+const port = process.env.PORT || 3000
 
 // Setup handlebar
 app.set('view engine', 'hbs')
@@ -28,7 +29,7 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Weather',
+        title: 'USAMA',
         name: "USAMA"
     })
 })
@@ -87,39 +88,6 @@ app.get('/weather', (req, res) => {
     })
 })
 
-// app.get('/weather', (req, res) =>  
-// {
-//     if (!req.query.address) 
-//     {
-//         return res.send({
-//             error: 'You must find some address'
-//         })
-        
-//     }
-
-//     geocode(req.query.address, (error, { latitude, longitude, location }) => {
-//         if (error) {
-//             return res.send({ error })
-//         }
-
-
-//         res.send({
-//             forecast: latitude,
-//             location:longitude,
-//             address: location
-//         })
-
-    
-  
-//     })
-  
-
-// })
-    
-
-
-
-   
 
 app.get('/help/*', (req, res) => {
     res.render('error', {
@@ -138,7 +106,7 @@ app.get('*', (req, res) => {
 
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
 
     console.log('Server is up on port 3000.')
 })
